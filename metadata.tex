@@ -1,0 +1,86 @@
+%-------------------------------------------------------------------------------
+% This file sets all the macros required by the ATLASPhaseII class.
+%-------------------------------------------------------------------------------
+
+% Paths for figures - do not forget the / at the end of the directory name.
+\graphicspath{{figures/}}
+
+% Path to glossaries
+% It must be updated when having included the specs template in a super-project.
+\loadglsentries{glossary}
+\makeglossaries
+
+% Files with references for use with biblatex.
+% The path must be updated when having included the specs template in a super-project.
+% Furterh bib sources can be added.
+\addbibresource{Specs.bib}
+%\addbibresource{AnotherFile.bib}
+
+% Path to the template seen from the (specification) document's root directory.
+% It must be updated when having included the specs template in a super-project.
+\TemplatePath{template}
+
+% (Full) Document title as appearing on the title page.
+\DocTitle{Firmware Good Practices}
+
+% Short document title (used in header).
+% Usage of \gls is not allowed here (otherwise EACH page would be listed in the glossary)
+\ShortDocTitle{Firmware Good Practices}
+
+% List of authors, separate by `\\`.
+\DocAuthors{
+Marcos Oliveira
+}
+
+% List of people who checked the document, separate by `\\`.
+%\DocCheckedBy{
+%  Albert Einstein \\
+%  Steven Hawking
+%}
+
+% List of people who approved the document, separate by `\\`.
+%\DocApprovedBy{
+%  Marie Curie \\
+%  Carl David Anderson
+%}
+
+% Date of "creation" (= first upload to EDMS) of the document.
+\creationDate{\today}
+
+% Date of last modification (= date of the latest upload to EDMS) of the document.
+\lastModifiedDate{\today}
+
+% Draft version. Not to be set when in option `nodraft`.
+\draftversion{0.1}
+
+% Input file containing the abstract.
+\abstractFile{Abstract.tex}
+
+%-------------------------------------------------------------------------------
+% EDMS: comment out if no identifiers attributed yet.
+% EDMS document number
+\EDMSDocNo{ABC-D-EF-1234}
+%
+% EDMS identification number
+\EDMSDocId{1234567 v.1}
+%
+% EDMS document URL
+\EDMSDocUrl{https://edms.cern.ch/document/1234567/1}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+% CDS: comment out if no identifiers attributed yet.
+% CDS document number
+\CDSDocNo{ABC-DEF-1234-567}
+%
+% CDS document URL
+\CDSDocUrl{http://cds.cern.ch/record/123}
+%-------------------------------------------------------------------------------
+
+% the color that glossary entries are highlighted in the main text
+% expect something dark (on white background)
+\glsmaincolor{purple}
+
+% the color that glossary entries are highlighted in the definition and requirement environments
+% expect something light (on colorfull background)
+\glsenvcolor{yellow}

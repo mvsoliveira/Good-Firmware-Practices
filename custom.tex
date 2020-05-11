@@ -1,0 +1,32 @@
+% Two fig command with figures with different sizes
+% clever references
+\usepackage{cleveref}
+
+% graphics
+\usepackage{graphicx}
+
+% two figures side by side
+\usepackage{diagbox}
+\newsavebox\IBoxA \newsavebox\IBoxB \newlength\IHeight
+\newcommand\TwoFig[6]{% Image1 Caption1 Label1 Im2 Cap2 Lab2
+  \sbox\IBoxA{\includegraphics[width=0.45\textwidth]{#1}}
+  \sbox\IBoxB{\includegraphics[width=0.45\textwidth]{#4}}%
+  \ifdim\ht\IBoxA>\ht\IBoxB
+    \setlength\IHeight{\ht\IBoxB}%
+  \else\setlength\IHeight{\ht\IBoxA}\fi
+  \begin{figure}[!htb]
+  \minipage[t]{0.45\textwidth}\centering
+  \includegraphics[height=\IHeight]{#1}
+  \caption{#2}\label{#3}
+  \endminipage\hfill
+  \minipage[t]{0.45\textwidth}\centering
+  \includegraphics[height=\IHeight]{#4}
+  \caption{#5}\label{#6}
+  \endminipage 
+  \end{figure}%
+}
+
+% Source codes
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\usepackage{minted}
+\newminted{tcl}{frame=single,bgcolor=bg,breaklines=true,numbers=left,stepnumber=1}

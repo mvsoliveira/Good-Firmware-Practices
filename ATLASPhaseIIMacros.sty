@@ -1,0 +1,742 @@
+%
+%
+%   style file used for the ATLAS Scoping Document
+%
+
+% 
+%\usepackage{xspace}
+%
+\DeclareRobustCommand{\lhcClock}{{40.08}\xspace}
+
+\DeclareRobustCommand{\ATLAS}{{\large ATLAS}\xspace}
+\DeclareRobustCommand{\CMS}{{\large CMS}\xspace}
+
+\let\sst=\scriptscriptstyle % Needed for some definitions (psi and eta prime, etc.) (EE)
+\chardef\letterchar=11
+\chardef\otherchar=12
+\chardef\eolinechar=5
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  Useful symbols for use in or out of math mode                     |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\def\ra{\ensuremath{\rightarrow}}%  "GOES TO" arrow.
+\def\la{\ensuremath{\leftarrow}}%   "GETS" arrow.
+\let\rarrow=\ra
+\let\larrow=\la
+\def\lapprox{\ensuremath{\sim\kern-1em\raise 0.65ex\hbox{$<$}}}%  Or use \lsim
+\def\rapprox{\ensuremath{\sim\kern-1em\raise 0.65ex\hbox{$>$}}}%  and \rsim.
+\def\gam{\ensuremath{\gamma}}
+\def\rts {\ensuremath{\sqrt{s}}}
+\def\rtsnn {\ensuremath{\sqrt{s_{NN}}}}
+\def\stat{\mbox{$\;$(stat.)}}
+\def\syst{\mbox{$\;$(syst.)}}
+%
+% define instantaneous luminosity
+%
+\def\instL{\mathcal{L}}
+\DeclareRobustCommand{\instLlowLHC}{$\mathcal{L}=10^{33}\mathrm{cm^{-2}s^{-1}}$\xspace}
+\DeclareRobustCommand{\instLnomLHC}{$\mathcal{L}=10^{34}\mathrm{cm^{-2}s^{-1}}$\xspace}
+\DeclareRobustCommand{\instLhlLHC}{$\mathcal{L}\simeq\,7.5\times\,10^{34}\mathrm{cm^{-2}s^{-1}}$\xspace}
+\DeclareRobustCommand{\instLulthlLHC}{$\mathcal{L}\simeq\,7.5\times\,10^{34}\mathrm{cm^{-2}s^{-1}}$\xspace}
+\DeclareRobustCommand{\instLnomhlLHC}{$\mathcal{L}\simeq\,5\times\,10^{34}\mathrm{cm^{-2}s^{-1}}$\xspace}
+\DeclareRobustCommand{\instLphaseILHC}{$\mathcal{L}\simeq\,2-3\times\,10^{34}\mathrm{cm^{-2}s^{-1}}$\xspace}
+%\def\instLlowLHC{$\mathcal{L}=10^{33}\mathrm{cm^{-2}s^{-1}}$ }
+%\def\instLnomLHC{$\mathcal{L}=10^{34}\mathrm{cm^{-2}s^{-1}}$ }
+%\def\instLhlLHC{$\mathcal{L}\simeq\,7.5\times\,10^{34}\mathrm{cm^{-2}s^{-1}}$ }
+%\def\instLulthlLHC{$\mathcal{L}\simeq\,7.5\times\,10^{34}\mathrm{cm^{-2}s^{-1}}$ }
+%\def\instLnomhlLHC{$\mathcal{L}\simeq\,5\times\,10^{34}\mathrm{cm^{-2}s^{-1}}$ }
+%\def\instLphaseILHC{$\mathcal{L}\simeq\,2-3\times\,10^{34}\mathrm{cm^{-2}s^{-1}}$ }
+%
+% Define Phase
+%
+\DeclareRobustCommand{\phaseZero}{Phase-0\xspace}
+\DeclareRobustCommand{\PhaseZero}{Phase-0\xspace}
+\DeclareRobustCommand{\phaseOne}{Phase-I\xspace}
+\DeclareRobustCommand{\PhaseOne}{Phase-I\xspace}
+\DeclareRobustCommand{\phaseTwo}{Phase-II\xspace}
+\DeclareRobustCommand{\PhaseTwo}{\phaseTwo}
+%
+\DeclareRobustCommand{\runOne}{Run-1\xspace}
+\DeclareRobustCommand{\runTwo}{Run-2\xspace}
+\DeclareRobustCommand{\runThree}{Run-3\xspace}
+\DeclareRobustCommand{\runFour}{Run-4\xspace}
+\DeclareRobustCommand{\RunOne}{\runOne\xspace}
+\DeclareRobustCommand{\RunTwo}{\runTwo\xspace}
+\DeclareRobustCommand{\RunThree}{\runThree\xspace}
+\DeclareRobustCommand{\RunFour}{\runFour\xspace}
+%
+\DeclareRobustCommand{\lsOne}{LS1\xspace}
+\DeclareRobustCommand{\lsTwo}{LS2\xspace}
+\DeclareRobustCommand{\lsThree}{LS3\xspace}
+\DeclareRobustCommand{\lsFour}{LS4\xspace}
+
+\DeclareRobustCommand{\levelZero}{Level-0\xspace}
+\DeclareRobustCommand{\levelOne}{Level-1\xspace}
+\DeclareRobustCommand{\FELIX}{FELIX\xspace}
+\DeclareRobustCommand{\felix}{FELIX\xspace}
+
+
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  sin2thetaW m_W m_Z etc.                                           |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\def\Mtau{\ensuremath{m_{\tau}}}
+\def\swsq{\ensuremath{\sin^2\!\theta_{W}}}
+\def\swel{\ensuremath{\sin^2\!\theta_{\mathrm{eff}}^{\mathrm{lept}}}}
+\def\swsqb{\ensuremath{\sin^2\!\overline{\theta}_{W}}}
+\def\swsqon{\ensuremath{\swsq\equiv 1-\mW^2/\mZ^2}} % Lower-case masses (EE)
+\def\gv{\ensuremath{g_{\mathrm{V}}}} % Subscripts roman not italic (EE)
+\def\ga{\ensuremath{g_{\mathrm{A}}}} % Subscripts roman not italic (EE)
+\def\gvbar{\ensuremath{\bar{g}_\mathrm{V}}} % Subscripts roman not italic (EE)
+\def\gabar{\ensuremath{\bar{g}_\mathrm{A}}} % Subscripts roman not italic (EE)
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  Particle-antiparticle pair notations                              |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\def\antibar#1{\ensuremath{#1\bar{#1}}}
+\def\tbar{\ensuremath{\bar{t}}}
+\def\ttbar{\antibar{t}}
+\def\b{\ensuremath{b}}
+\def\bbar{\ensuremath{\bar{b}}}
+\def\bbbar{\antibar{b}}
+\def\cbar{\ensuremath{\bar{c}}}
+\def\ccbar{\antibar{c}}
+\def\sbar{\ensuremath{\bar{s}}}
+\def\ssbar{\antibar{s}}
+\def\ubar{\ensuremath{\bar{u}}}
+\def\uubar{\antibar{u}}
+\def\dbar{\ensuremath{\bar{d}}}
+\def\ddbar{\antibar{d}}
+\def\fbar{\ensuremath{\bar{f}}}
+\def\ffbar{\antibar{f}}
+\def\qbar{\ensuremath{\bar{q}}}
+\def\qqbar{\antibar{q}}
+\def\nbar{\ensuremath{\bar{\nu}}}
+\def\nnbar{\antibar{\nu}}
+\def\pbar{\ensuremath{\antibar{p}}}
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  e+e-, etc.                                                        |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\def\ee{\ensuremath{e^+ e^-}}%
+\def\epm{\ensuremath{e^{\pm}}}%
+\def\epem{\ensuremath{e^+ e^-}}%
+\def\mumu{\ensuremath{\mathrm{\mu^+ \mu^-}}}%
+\def\tautau{\ensuremath{\mathrm{\tau^+ \tau^-}}}%
+\let\muchless=\ll
+\def\leplep{\ensuremath{\ell^+ \ell^-}}%
+\def\lnu{\ensuremath{\ell \nu}}%
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  Useful Z0 type stuff    Gammas, asymmetries                       |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+\def\Zzero{\ensuremath{Z}}
+\def\Zboson{\ensuremath{Z}}
+\def\ZZ{\ensuremath{ZZ}}
+\def\Wplus{\ensuremath{W^+}}
+\def\Wminus{\ensuremath{W^-}}
+\def\WpWm{\ensuremath{W^+W^-}}
+\def\Wboson{\ensuremath{W}}%
+\def\Wpm{\ensuremath{W^{\pm}}}%
+\def\Wmp{\ensuremath{W^{\mp}}}%
+\def\Zzv{\ensuremath{\Zzero^{\textstyle *}}}
+\def\Abb{\ensuremath{A_{\bbbar}}}
+\def\Acc{\ensuremath{A_{\ccbar}}}
+\def\Aqq{\ensuremath{A_{\qqbar}}}
+\def\Afb{\ensuremath{A_{{fb}}}} % Subscript italic not roman (EE)
+\def\GZ{\ensuremath{\Gamma_{Z}}}
+\def\GW{\ensuremath{\Gamma_{W}}}
+\def\GH{\ensuremath{\Gamma_{H}}}
+\def\GamHad{\ensuremath{\Gamma_{\mathrm{had}}}}
+\def\Gbb{\ensuremath{\Gamma_{\bbbar}}}
+\def\Rbb{\ensuremath{R_{\bbbar}}}
+\def\Gcc{\ensuremath{\Gamma_{\ccbar}}}
+\def\Gvis{\ensuremath{\Gamma_{\mathrm{vis}}}}
+\def\Ginv{\ensuremath{\Gamma_{\mathrm{inv}}}}
+
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  QCD (Simplified all of these: no hbox, etc.) (EE)                 |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\def\alphas{\ensuremath{\alpha_{\mathrm{S}}}} % Subscript roman not italic (EE)
+\def\NF{\ensuremath{N_{\mathrm{F}}}}
+\def\NC{\ensuremath{N_{\mathrm{C}}}}
+\def\CF{\ensuremath{C_{\mathrm{F}}}}
+\def\CA{\ensuremath{C_{\mathrm{A}}}}
+\def\TF{\ensuremath{T_{\mathrm{F}}}}
+\def\Lms{\ensuremath{\Lambda_{\overline{\mathrm{MS}}}}}
+\def\Lmsfive{\ensuremath{\Lambda^{(5)}_{\overline{\mathrm{MS}}}}}
+\def\KT{\ensuremath{k_{\perp}}}                                   
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  Higgs boson stuff                                                 |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\def\Azero{\ensuremath{A^0}}%
+\def\hzero{\ensuremath{h^0}}%
+\def\Hzero{\ensuremath{H^0}}%
+\def\Hboson{\ensuremath{H}}%
+\def\Hplus{\ensuremath{H^+}}%
+\def\Hminus{\ensuremath{H^-}}%
+\def\Hpm{\ensuremath{H^{\pm}}}%
+\def\Hmp{\ensuremath{H^{\mp}}}%
+%--
+\def\mH{\ensuremath{m_H}}
+\def\mA{\ensuremath{m_A}}
+\def\mh{\ensuremath{m_h}}
+\def\mHplusminus{\ensuremath{m_{H^\pm}}}
+%--
+\def\Hgg{\ensuremath{H\to\gamma\gamma}}
+\def\HZZ{\ensuremath{H \rightarrow ZZ^{(*)}}}
+\def\HZZllll{\ensuremath{H \rightarrow ZZ^{(*)} \rightarrow \ell\ell\ell\ell}}
+\def\HZZmmmm{\ensuremath{H \rightarrow ZZ^{(*)}\rightarrow \mu\mu\mu\mu}}
+\def\HZZeeee{\ensuremath{H \rightarrow ZZ^{(*)}\rightarrow eeee}}
+\def\HZZeemm{\ensuremath{H \rightarrow ZZ^{(*)}\rightarrow ee\mu\mu}}
+\def\HZZmmee{\ensuremath{H \rightarrow ZZ^{(*)}\rightarrow \mu\mu ee}}
+\def\HWW{\ensuremath{H \rightarrow WW^{(*)}}}
+\def\HWWlnln{\ensuremath{H \rightarrow WW^{(*)} \rightarrow \ell\nu \ell\nu}}
+\def\HZZllnn{\ensuremath{H \rightarrow ZZ^{(*)} \rightarrow ll\nu\nu}}
+\def\HWWenmn{\ensuremath{H \rightarrow WW^{(*)} \rightarrow e\nu \mu\nu}}
+\def\Htau{\ensuremath{H \rightarrow \tau\tau}}
+\def\Hbb{\ensuremath{H \rightarrow b\bar{b}}}
+\def\Hmm{\ensuremath{H \rightarrow \mu\mu}}
+
+\def\Amm{\ensuremath{A \rightarrow \mu\mu}}
+\def\Atau{\ensuremath{A \rightarrow \tau\tau}}
+
+\def\HHbbbb{\ensuremath{HH \rightarrow b\bar b b \bar b}}
+\def\HHggbb{\ensuremath{HH \rightarrow \gamma\gamma b \bar b}}
+
+%HWW
+\def\singletop{\ensuremath{tW/tb/tqb}}
+\def\Nbjet{\ensuremath{N_{\rm b-\mathrm{jet}}}}
+\def\Mjj{\ensuremath{m_{\mathrm{jj}}}}
+\def\mll{\ensuremath{m_{\ell\ell}}}
+\def\dphill{\ensuremath{\Delta\phi_{\ell\ell}}}
+\def\pTtot{\ensuremath{p_{\rm T}^{\rm tot}}}
+\def\ztt{\ensuremath{Z/\gamma^*{\rightarrow\,}\tau\tau}}
+
+
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  SUSY  stuff                                                       |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+
+
+
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  BSM   stuff                                                       |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+
+\def\Zprimett{\ensuremath{Z' \rightarrow t \bar t}}
+\def\Zprimell{\ensuremath{Z' \rightarrow \ell\ell}}
+
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% | useful definitions for SUSY                                        |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%%%%%%%%%%%%%%%%%%%%%%%%%% useful definitions for SUSY processes %%%%%%
+\newcommand{\neut}  {\ensuremath{{\tilde{\chi}^{0}_{1}}}}
+\newcommand{\charg} {\ensuremath{{\tilde{\chi}^{\pm}_{1}}}}
+\newcommand{\chargtwo}  {\ensuremath{{\tilde{\chi}^{\pm}_{2}}}}
+\newcommand{\chargonetwo}  {\ensuremath{{\tilde{\chi}^{\pm}_{1,2}}}}
+\newcommand{\ninotwo}  {\ensuremath{{\tilde{\chi}^{0}_{2}}}}
+\newcommand{\ninoone}  {\ensuremath{{\tilde{\chi}^{0}_{1}}}}
+\newcommand{\ninofour}  {\ensuremath{{\tilde{\chi}^{0}_{4}}}}
+\newcommand{\mttwo}{\ensuremath{m_\mathrm{T2}}\xspace}
+\def\neut{\ensuremath{\mathchoice
+      {\displaystyle\raise.4ex\hbox{$\displaystyle\tilde\chi^0_1$}}%
+         {\textstyle\raise.4ex\hbox{$\textstyle\tilde\chi^0_1$}}%
+       {\scriptstyle\raise.3ex\hbox{$\scriptstyle\tilde\chi^0_1$}}%
+ {\scriptscriptstyle\raise.3ex\hbox{$\scriptscriptstyle\tilde\chi^0_1$}}}}
+
+\newcommand{\squark}  {\tilde{q}}
+\newcommand{\gluino}  {\tilde{g}}
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  pi, pi0, pi+, pi-, pi+-, eta, eta1, etc.                          |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\let\pii=\pi
+\def\pi{\ensuremath{\pii}}%
+\def\pizero{\ensuremath{\pii^0}}%
+\def\piplus{\ensuremath{\pii^+}}%
+\def\piminus{\ensuremath{\pii^-}}%
+\def\pipm{\ensuremath{\pii^{\pm}}}%
+\def\pimp{\ensuremath{\pii^{\mp}}}%
+\let\etaa=\eta
+\def\eta{\ensuremath{\etaa}}%
+\def\etaprime{\ensuremath{\eta^{\sst\prime}}}%
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  K0, K+, K-, K0L, K0S                                              |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\def\kzero{\ensuremath{K^0}}%
+\def\kzerobar{\ensuremath{\overline{K}\vphantom{K}^0}}%
+%
+\def\kaon{\ensuremath{K}}%
+\def\kplus{\ensuremath{K^+}}%
+\def\kminus{\ensuremath{K^-}}%
+\def\kzeroL{\ensuremath{K^0_{\mathrm{L}}}} % Subscript roman not italic (EE)
+\def\kzerol{\ensuremath{K^0_{\mathrm{L}}}} % Subscript roman not italic (EE)
+\def\klong{\ensuremath{K^0_{\mathrm{L}}}} % Subscript roman not italic (EE)
+\def\kzeroS{\ensuremath{K^0_{\mathrm{S}}}} % Subscript roman not italic (EE)
+\def\kzeros{\ensuremath{K^0_{\mathrm{S}}}} % Subscript roman not italic (EE)
+\def\kshort{\ensuremath{K^0_{\mathrm{S}}}} % Subscript roman not italic (EE)
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  Upsilons of various sorts                                         |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\def\Ups{\ensuremath{\mit\Upsilon}} % Should be italic (EE)
+\def\Upsp{\ensuremath{\mit\Upsilon^{\sst\prime}}} % Should be italic (EE)
+\def\Upspp{\ensuremath{\mit\Upsilon^{\sst\prime\prime}}} % Should be italic (EE)
+\def\Upsppp{\ensuremath{\mit\Upsilon^{\sst\prime\prime\prime}}} % Should be italic (EE)
+\def\Upspppp{\ensuremath{\mit\Upsilon^{\sst\prime\prime\prime\prime}}} % Should be italic (EE)
+\def\itUpsp{\ensuremath{\mit\Upsilon^{\sst\prime}}}%
+\def\UoneS{\ensuremath{\Upsilon(\mathrm{1S})}}%
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  Useful things for proton-proton physics                           |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\def\pt{\ensuremath{p_{\mathrm{T}}}} % Subscript roman not italic (EE)
+\def\pT{\ensuremath{p_{\mathrm{T}}}} % Subscript roman not italic (EE)
+\def\et{\ensuremath{E_{\mathrm{T}}}} % Subscript roman not italic (EE)
+\def\eT{\ensuremath{E_{\mathrm{T}}}} % Subscript roman not italic (EE)
+\def\ET{\ensuremath{E_{\mathrm{T}}}} % Subscript roman not italic (EE)
+\def\HT{\ensuremath{H_{\mathrm{T}}}} % Subscript roman not italic (EE)
+\def\ptsq{\ensuremath{p^2_{\mathrm{T}}}} % Fixed so it works correctly (EE)
+\def\ptt{\ensuremath{p_{\mathrm{Tt}}}} % Subscript roman not italic (EE)
+\def\pTt{\ensuremath{p_{\mathrm{Tt}}}} % Subscript roman not italic (EE)
+\def\mT{\ensuremath{m_{\mathrm{T}}}} % Subscript roman not italic (EE)
+
+\def\degr{\ensuremath{^\circ}} % Removed mbox - caused problems and not needed (EE)
+\def\abseta{\ensuremath{|\eta|}}
+
+\def\mW{\ensuremath{m_W}}
+\def\mZ{\ensuremath{m_Z}}
+\DeclareRobustCommand{\ETmiss}{\ensuremath{E_\mathrm{T}^\mathrm{miss}}\xspace}
+\def\MET{\ensuremath{E_{\mathrm{T}}^{\mathrm{miss}}}} % Sub/superscript roman not italic (EE)
+\def\met{\ensuremath{E_{\mathrm{T}}^{\mathrm{miss}}}} % Sub/superscript roman not italic (EE)
+\def\Wjj{\ensuremath{W \rightarrow jj}}
+\def\tjjb{\ensuremath{t \rightarrow jjb}}
+\def\Hbb{\ensuremath{H \rightarrow b\bar b}}
+\def\Zmm{\ensuremath{Z \rightarrow \mu\mu}}
+\def\Zee{\ensuremath{Z \rightarrow ee}}
+\def\Zll{\ensuremath{Z \rightarrow \ell\ell}}
+\def\Wln{\ensuremath{W \rightarrow \ell\nu}}
+\def\Wen{\ensuremath{W \rightarrow e\nu}}
+\def\Wmn{\ensuremath{W \rightarrow \mu\nu}}
+
+\def\Ztau{\ensuremath{Z \rightarrow \tau\tau}}
+\def\Wtau{\ensuremath{W \rightarrow \tau\nu}}
+
+\def\begL{10$^{31}$~cm$^{-2}$~s$^{-1}$}
+\def\lowL{10$^{33}$~cm$^{-2}$~s$^{-1}$}
+\def\highL{10$^{34}$~cm$^{-2}$~s$^{-1}$}
+\newcommand{\EjetRec}{\ensuremath{E_{\mathrm{rec}}}} % Subscript roman not italic (EE)
+\newcommand{\PjetRec}{\ensuremath{p_{\mathrm{rec}}}} % Subscript roman not italic (EE)
+\newcommand{\EjetTru}{\ensuremath{E_{\mathrm{truth}}}} % Subscript roman not italic (EE)
+\newcommand{\PjetTru}{\ensuremath{p_{\mathrm{truth}}}} % Subscript roman not italic (EE)
+\newcommand{\EjetDM}{\ensuremath{E_{\mathrm{DM}}}} % Subscript roman not italic (EE)
+\newcommand{\Rcone}{\ensuremath{R_{\mathrm{cone}}}} % Subscript roman not italic (EE)
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  Some useful units                                                 |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\def\TeV{\ifmmode {\mathrm{\ Te\kern -0.1em V }}\else
+                   \textrm{Te\kern -0.1em V }\fi}%
+\def\GeV{\ifmmode {\mathrm{\ Ge\kern -0.1em V }}\else
+                   \textrm{Ge\kern -0.1em V }\fi}%
+\def\MeV{\ifmmode {\mathrm{\ Me\kern -0.1em V }}\else
+                   \textrm{Me\kern -0.1em V }\fi}%
+\def\keV{\ifmmode {\mathrm{\ ke\kern -0.1em V }}\else
+                   \textrm{ke\kern -0.1em V }\fi}%
+\def\eV{\ifmmode  {\mathrm{\ e\kern -0.1em V }}\else
+                   \textrm{e\kern -0.1em V }\fi}%
+\let\tev=\TeV
+\let\gev=\GeV
+\let\mev=\MeV
+\let\kev=\keV
+\let\ev=\eV
+
+\def\TeVc{\ifmmode {\mathrm{\ Te\kern -0.1em V}/c}\else
+                   {\textrm{Te\kern -0.1em V}/$c$}\fi}%
+\def\GeVc{\ifmmode {\mathrm{\ Ge\kern -0.1em V}/c}\else
+                   {\textrm{Ge\kern -0.1em V}/$c$}\fi}%
+\def\MeVc{\ifmmode {\mathrm{\ Me\kern -0.1em V}/c}\else
+                   {\textrm{Me\kern -0.1em V}/$c$}\fi}%
+\def\keVc{\ifmmode {\mathrm{\ ke\kern -0.1em V}/c}\else
+                   {\textrm{ke\kern -0.1em V}/$c$}\fi}%
+\def\eVc{\ifmmode  {\mathrm{\ e\kern -0.1em V}/c}\else
+                   {\textrm{e\kern -0.1em V}/$c$}\fi}%
+\let\tevc=\TeVc
+\let\gevc=\GeVc
+\let\mevc=\MeVc
+\let\kevc=\keVc
+\let\evc=\eVc
+
+\def\TeVcc{\ifmmode {\mathrm{\ Te\kern -0.1em V}/c^2}\else
+                   {\textrm{Te\kern -0.1em V}/$c^2$}\fi}%
+\def\GeVcc{\ifmmode {\mathrm{\ Ge\kern -0.1em V}/c^2}\else
+                   {\textrm{Ge\kern -0.1em V}/$c^2$}\fi}%
+\def\MeVcc{\ifmmode {\mathrm{\ Me\kern -0.1em V}/c^2}\else
+                   {\textrm{Me\kern -0.1em V}/$c^2$}\fi}%
+\def\keVcc{\ifmmode {\mathrm{\ ke\kern -0.1em V}/c^2}\else
+                   {\textrm{ke\kern -0.1em V}/$c^2$}\fi}%
+\def\eVcc{\ifmmode  {\mathrm{\ e\kern -0.1em V}/c^2}\else
+                   {\textrm{e\kern -0.1em V}/$c^2$}\fi}%
+\let\tevcc=\TeVcc
+\let\gevcc=\GeVcc
+\let\mevcc=\MeVcc
+\let\kevcc=\keVcc
+\let\evcc=\eVcc
+
+\def\cm{\ifmmode  {\mathrm{\ cm}}\else
+                   \textrm{~cm}\fi}%
+\def\mm{\ifmmode  {\mathrm{\ mm}}\else
+                   \textrm{~mm}\fi}%
+
+\def\meter{\ifmmode  {\mathrm{\ m}}\else
+                   \textrm{~m}\fi}%
+
+\def\um{\ifmmode {\mathrm{\upmu\,m\xspace}}\else
+                   \textrm{$\upmu$m\xspace}\fi}%
+\def\us{\ifmmode {\mathrm{\upmu\,s\xspace}}\else
+                   \textrm{$\upmu$s\xspace}\fi}%
+
+%
+\def\ifb{\mbox{fb$^{-1}$}}%  Inverse femtobarns.
+\def\ipb{\mbox{pb$^{-1}$}}%  Inverse picobarns.
+\def\inb{\mbox{nb$^{-1}$}}%  Inverse nanobarns.
+%
+\def\mass#1{\ensuremath{m_{#1#1}}}%  "\mass{\mu}" produces "msub{mumu}".
+\def\twomass#1#2{\ensuremath{m_{#1#2}}}% 
+%
+\def\Ecm{\ensuremath{E_{\mathrm{cm}}}} % Subscript roman not italic (EE)
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  "Box-squared" operator, as in Klein-Gordon. Command is "\boxsq".  |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\newbox\boxsqbox
+\newdimen\boxsize\boxsize=1.2ex%
+\def\boxop{%
+\setbox\boxsqbox=\vbox{\hrule depth0.8pt width0.8\boxsize height0pt%
+                       \kern0.8\boxsize
+                       \hrule height0.8pt width0.8\boxsize depth0pt}%
+           \hbox{%
+           \vrule height1.0\boxsize width0.8pt depth0pt%
+           \copy\boxsqbox
+           \vrule height1.0\boxsize width0.8pt depth0pt\kern1.5pt}}%
+\def\boxsq{\ensuremath{\boxop^2}}%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  Theoretical notations                                             |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\def\spinor#1{\ensuremath{\left(\matrix{#1_1\cr#1_2\cr#1_3\cr#1_4\cr}\right)}} % Math mode (EE)
+\def\pmb#1{\setbox0=\hbox{$#1$}%  This is "poor man's boldface".
+  \kern-.025em\copy0\kern-1.0\wd0%
+  \kern.05em\copy0\kern-1.0\wd0%
+  \kern-.025em\raise.0433em\box0}%
+\def\grad{\pmb{\nabla}}%
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  The decay symbol, to be used in \eqalign.                         |
+% |  It works like: \[\eqalign{a\ra &b+c\cr &\dk &e+f\cr &&\dk g+h}\]  |
+% |                                                                    |
+% |                  a  -->  b + c                                     |
+% |                          |                                         |
+% |                          |                                         |
+% |                          +----> e + f                              |
+% |                                 |                                  |
+% |                                 |                                  |
+% |                                 +----> g + h                       |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\newdimen\dkwidth
+\def\dk{%
+   \dkwidth=\baselineskip
+   {\def\to{\rightarrow}%  allows "\rightarrowfill" to work.
+   \kern 3pt%
+   \hbox{%
+      \raise 3pt%
+      \hbox{%
+         \vrule height 0.8\dkwidth width 0.7pt depth0pt%
+      }%
+      \kern-0.4pt%
+      \hbox to 1.5\dkwidth{%
+         \rightarrowfill
+      }%
+   \kern0.6em%
+   }}%
+}%
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  Redefine \eqalign to allow more than one column; very             |
+% |  useful for multiple decays as defined above.                      |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+%\unlock
+\def\eqalign#1{%
+   \,
+   \vcenter{%
+      \openup\jot\m@th
+      \ialign{%
+         \strut\hfil$\displaystyle{##}$&&$%
+         \displaystyle{{}##}$\hfil\crcr#1\crcr%
+      }%
+   }%
+   \,
+}%
+%\lock
+%
+% +--------------------------------------------------------------------+
+% |                                                                    |
+% |  JOURNALS (for MISC definitions)                                   |
+% |                                                                    |
+% +--------------------------------------------------------------------+
+%
+\newcommand {\AcPA}   {Acta Phys. Austriaca{} }
+\newcommand {\ARevNS} {Ann.{} Rev.{} Nucl.{} Sci.{} }
+\newcommand {\CPC}    {Comp.{} Phys.{} Comm.{} }
+\newcommand {\FortP}  {Fortschr.{} Phys.{} }
+\newcommand {\IJMP}   {Int.{} J.{} Mod.{} Phys.{} }
+\newcommand {\JETP}   {Sov.{} Phys.{} JETP{} }
+\newcommand {\JETPL}  {JETP Lett.{} }
+\newcommand {\JaFi}   {Jad.{} Fiz.{} }
+\newcommand {\JMP}    {J.{} Math.{} Phys.{} }
+\newcommand {\MPL}    {Mod.{} Phys.{} Lett.{} }
+\newcommand {\NCim}   {Nuovo Cimento{} }
+\newcommand {\NIM}    {Nucl.{} Instrum.{} Meth.{} }
+\newcommand {\NP}     {Nucl.{} Phys.{} }
+\newcommand {\PL}     {Phys.{} Lett.{} }
+\newcommand {\PR}     {Phys.{} Rev.{} }
+\newcommand {\PRL}    {Phys.{} Rev.{} Lett.{} }
+\newcommand {\PRep}   {Phys.{} Rep.{} }   
+\newcommand {\RMP}    {Rev.{} Mod.{} Phys.{} }
+\newcommand {\ZfP}    {Z.{} Phys.{} }
+\newcommand {\EPJ}    {Eur.{} Phys.{} J.{} }
+        
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     
+% Additional macros from FCNC
+% 
+%shorthands and Internal references
+\newcommand{\mat}[1]{\ensuremath{#1}}
+\newcommand{\matrm}[1]{\ensuremath{\mathrm{#1}}}
+\newcommand*{\BR}{\mat{\mathcal{BR}}\xspace}
+\newcommand{\kBR}[1]{\mat{\BR (#1)}}
+\newcommand{\kSci}[2]{\mat{#1 \times 10^{#2}}\xspace}
+\newcommand{\kDecay}[2]{\mat{#1 \rightarrow #2}\xspace}
+\newcommand{\kAbs}[1]{\mat{\lvert #1 \rvert}\xspace}
+
+\newcommand{\refTable}[1]{Table \ref{#1}\xspace}
+\newcommand{\refFig}[1]{Figure \ref{#1}\xspace}
+\newcommand{\refEq}[1]{Equation \ref{#1}\xspace}
+\newcommand{\refChapter}[1]{Chapter \ref{#1}\xspace}
+\newcommand{\refCite}[1]{Ref. \cite{#1}\xspace}
+\newcommand{\refSec}[1]{Section \ref{#1}\xspace}
+\newcommand{\seeFig}[1]{(see \refFig{#1})\xspace}
+\newcommand{\seeTable}[1]{(see \refTable{#1})\xspace}
+\newcommand{\seeSec}[1]{(see \refSec{#1})\xspace}
+\newcommand{\seeEq}[1]{(see \refEq{#1})\xspace}
+\newcommand{\figSource}[2]{(source: #1 \cite{#2})\xspace}
+
+\newcommand{\EndRow}{\\ \hline}
+\newcommand{\EndRowNohline}{\\}
+\newcommand{\EndRowCLine}[1]{\\ \cline{#1}}
+
+\newcommand{\kEquation}[2]
+{
+\begin{equation}
+  #1
+	\label{#2}
+\end{equation}
+}
+
+\newcommand{\kChi}{\mat{\chi^2}\xspace}
+\newcommand{\kMZ}{\mat{M_Z}\xspace}
+\newcommand{\kMW}{\mat{M_W}\xspace}
+\newcommand{\kMWT}{\mat{M^W_T}\xspace}
+\newcommand{\kMtZ}{\mat{M_\mathrm{top}^{Z}}\xspace}
+\newcommand{\kMtW}{\mat{M_\mathrm{top}^{W}}\xspace}
+
+%Channels
+\newcommand{\tZu}{\kDecay{t}{Zu}\xspace}
+\newcommand{\tWb}{\kDecay{t}{Wb}\xspace}
+\newcommand{\tHu}{\kDecay{t}{Hu}\xspace}
+\newcommand{\WH}{\mat{WH}\xspace}
+\newcommand{\ZJets}{\mat{Z\mathrm{+jets}}\xspace}
+
+%MC generators
+\newcommand{\MadGraph}{{\scshape MadGraph}\xspace}
+\newcommand{\Powheg}{{\scshape Powheg}\xspace}
+\newcommand{\Sherpa}{{\scshape Sherpa}\xspace}
+\newcommand{\Alpgen}{{\scshape Alpgen}\xspace}
+\newcommand{\MCatNLO}{{\scshape MC@NLO}\xspace}
+\newcommand{\AcerMC}{{\scshape AcerMC}\xspace}
+
+%PDFs
+\newcommand{\CTEQSixLOne}{{\scshape CTEQ6L1}\xspace}
+\newcommand{\CTEQSixSix}{{\scshape CTEQ6.6}\xspace}
+\newcommand{\CTTen}{{\scshape CT10}\xspace}
+\newcommand{\MSTWTwoThousandEightLO}{{\scshape MSTW2008LO}\xspace}
+\newcommand{\LHAPDF}{{\scshape LHAPDF}\xspace}
+\newcommand{\NNPDFTwo}{{\scshape NNPDF2.0}\xspace}
+
+
+%Showering
+\newcommand{\Pythia}{{\scshape Pythia}\xspace}
+\newcommand{\PythiaSix}{{\scshape Pythia6}\xspace}
+\newcommand{\PythiaEight}{{\scshape Pythia8}\xspace}
+\newcommand{\Herwig}{{\scshape Herwig}\xspace}
+\newcommand{\Jimmy}{{\scshape Jimmy}\xspace}
+%\newcommand{\HerwigJimmy}{{\scshape Herwig/Jimmy}\xspace}
+\newcommand{\HerwigJimmy}{{\Herwig}\xspace}
+
+
+%Tunes
+\newcommand{\AUTwo}{{\scshape AU2}\xspace}
+\newcommand{\AUETOne}{{\scshape AUET1}\xspace}
+\newcommand{\AUETTwo}{{\scshape AUET2}\xspace}
+\newcommand{\AUETTwoB}{{\scshape AUET2B}\xspace}
+\newcommand{\PTwentyElevenC}{{\scshape P2011C}\xspace}
+\newcommand{\Perugia}{{\scshape Perugia}\xspace}
+\newcommand{\ProfessorTune}{{\scshape Professor}\xspace}
+
+\newcommand{\GEANTFour}{{\scshape GEANT4}\xspace}
+\newcommand{\MVOne}{{\scshape MV1}\xspace}
+
+%Channels
+\newcommand{\Cchannel}{\mat{s}-channel\xpsace}
+\newcommand{\tChannel}{\mat{t}-channel\xspace}
+\newcommand{\uChannel}{\mat{u}-channel\xspace}
+
+%BTagging
+\newcommand{\bTagging}{\mat{b}-tagging\xspace}
+\newcommand{\bTagged}{\mat{b}-tagged\xspace}
+
+%VBFHZZ
+\newcommand{\DelEtajj}{\ensuremath{\Delta\eta_{\mathrm{jj}}}\xspace}
+\newcommand{\ZeppetaZZ}{\ensuremath{\eta_{ZZ}^\text{Zepp}}\xspace}
+\newcommand{\ljeta}{\ensuremath{\eta_\text{(jet~1)}}\space}
+\newcommand{\sjeta}{\ensuremath{\eta_\text{(jet~2)}}\xspace}
+\newcommand{\ljpt}{\ensuremath{p_\text{T(jet~1)}}\xspace}
+\newcommand{\sjpt}{\ensuremath{p_\text{T(jet~2)}}\xspace}
+
+% LHC Runs and others
+\DeclareRobustCommand{\RunOne}{Run-1\xspace}
+\DeclareRobustCommand{\RunTwo}{Run-2\xspace}
+\DeclareRobustCommand{\RunThree}{Run-3\xspace}
+\DeclareRobustCommand{\RunFour}{Run-4\xspace}
+\DeclareRobustCommand{\LevelOne}{Level-1\xspace}
+\DeclareRobustCommand{\LevelTwo}{Level-2\xspace}
+\DeclareRobustCommand{\LevelZero}{Level-0\xspace}
+\DeclareRobustCommand{\pileup}{pile-up\xspace}
+\DeclareRobustCommand{\Pileup}{Pile-up\xspace}
+
+%-------------------------------------------------------------------------------
+% Todo items, using the todonotes package
+% will be fully disabled when document is in 'nodraft' mode
+%-------------------------------------------------------------------------------
+\newcounter{fixitcnt}
+\newcounter{opencnt}
+\newcounter{stylecnt}
+\newcounter{reviewcnt}
+% editor information
+\newcommand{\editor}[2][]{\todo[inline,bordercolor=yellow,color=yellow!50,#1]{\textbf{Editor(s):} #2}}
+% open todo items
+\newcommand{\fixit}[2][]{\stepcounter{fixitcnt}\todo[inline,bordercolor=red,color=red!50,#1]{\textbf{FIX IT [\thefixitcnt]:} #2}}
+\newcommand{\fixpage}[2][]{\stepcounter{fixitcnt}\todo[inline,bordercolor=red,color=red!50,caption={\textbf{FIX IT [\thefixitcnt]:} (cannot display full text)},#1]{\begin{minipage}{\textwidth-4pt}\textbf{FIX IT [\thefixitcnt]:} #2\end{minipage}}}
+% open questions regarding the specs
+% things that will require clarification later as some info from 3rd parties is not known)
+\newcommand{\open}[2][]{\stepcounter{opencnt}\todo[inline,bordercolor=purple,color=purple!50,#1]{\textbf{OPEN [\theopencnt]:} #2}}
+% style todos
+% technical, latex-related issues
+\newcommand{\style}[2][]{\stepcounter{stylecnt}\todo[inline,bordercolor=MidnightBlue!38,color=MidnightBlue!19,#1]{\textbf{STYLE [\thestylecnt]:} #2}}
+% review comments
+\newcommand{\review}[1]{\stepcounter{reviewcnt}\todo[inline,bordercolor=Apricot,color=Apricot!50]{\textbf{REVIEW [\thereviewcnt]:} #1}\addElementToReviewList}
+\newcommand{\reviewaddressed}[1]{\stepcounter{reviewcnt}\todo[nolist,inline,bordercolor=LimeGreen,color=LimeGreen!50]{\textbf{@REVIEW [\thereviewcnt]:} #1}\addElementToReviewList}
+
+%-------------------------------------------------------------------------------
+% References
+%-------------------------------------------------------------------------------
+\newcommand{\tabref}[1]{\hyperref[tab:#1]{table~}\ref{tab:#1}}%~(p.~\pageref{#1})}
+\newcommand{\Tabref}[1]{\hyperref[tab:#1]{Table~}\ref{tab:#1}}%~(p.~\pageref{#1})}
+\newcommand{\figref}[1]{\hyperref[fig:#1]{figure~}\ref{fig:#1}}%~(p.~\pageref{#1})}
+\newcommand{\Figref}[1]{\hyperref[fig:#1]{Figure~}\ref{fig:#1}}%~(p.~\pageref{#1})}
+%\newcommand{\figsref}[2]{\hyperref[#1]{figures~}\ref{fig:#1} and~\ref{fig:#2}}%~(p.~\pageref{#1})}
+%\newcommand{\figtoref}[2]{\hyperref[#1]{figures~}\ref{fig:#1} to~\ref{fig:#2}}%~(p.~\pageref{#1})}
+\newcommand{\equref}[1]{\hyperref[equ:#1]{equation~}\ref{equ:#1}}%~(p.~\pageref{#1})}
+\newcommand{\Equref}[1]{\hyperref[equ:#1]{Equation~}\ref{equ:#1}}%~(p.~\pageref{#1})}
+\newcommand{\Charef}[1]{\hyperref[cha:#1]{Chapter~}\ref{cha:#1}}%~(p.~\pageref{#1})}
+\newcommand{\charef}[1]{\hyperref[cha:#1]{chapter~}\ref{cha:#1}}%~(p.~\pageref{#1})}
+\newcommand{\Secref}[1]{\hyperref[sec:#1]{Section~}\ref{sec:#1}}%~(p.~\pageref{#1})}
+\newcommand{\secref}[1]{\hyperref[sec:#1]{section~}\ref{sec:#1}}%~(p.~\pageref{#1})}
+\newcommand{\Coderef}[1]{\hyperref[cod:#1]{Code snippet~}\ref{cod:#1}}%~(p.~\pageref{#1})}
+\newcommand{\coderef}[1]{\hyperref[cod:#1]{code snippet~}\ref{cod:#1}}%~(p.~\pageref{#1})}
+
+\newcommand{\defref}[1]{\hyperref[def:#1]{definition~}\ref{def:#1}}%~(p.~\pageref{#1})}
+\newcommand{\Defref}[1]{\hyperref[def:#1]{Definition~}\ref{def:#1}}%~(p.~\pageref{#1})}
+\newcommand{\reqref}[1]{\hyperref[req:#1]{requirement~}\ref{req:#1}}%~(p.~\pageref{#1})}
+\newcommand{\Reqref}[1]{\hyperref[req:#1]{Requirement~}\ref{req:#1}}%~(p.~\pageref{#1})}
+\newcommand{\specref}[1]{\hyperref[spec:#1]{specification~}\ref{spec:#1}}%~(p.~\pageref{#1})}
+\newcommand{\Specref}[1]{\hyperref[spec:#1]{Specification~}\ref{spec:#1}}%~(p.~\pageref{#1})}
+\newcommand{\recref}[1]{\hyperref[rec:#1]{recommendation~}\ref{rec:#1}}%~(p.~\pageref{#1})}
+\newcommand{\Recref}[1]{\hyperref[rec:#1]{Recommendation~}\ref{rec:#1}}%~(p.~\pageref{#1})}
+\newcommand{\remref}[1]{\hyperref[rem:#1]{remark~}\ref{rem:#1}}%~(p.~\pageref{#1})}
+\newcommand{\Remref}[1]{\hyperref[rem:#1]{Remark~}\ref{rem:#1}}%~(p.~\pageref{#1})}
+%-------------------------------------------------------------------------------
+% References end
+%-------------------------------------------------------------------------------

@@ -1,0 +1,155 @@
+%-------------------------------------------------------------------------------
+% See https://gitlab.cern.ch/atlas-upgrade-coordination/LaTeXATLASPhaseII
+%   - for general information on how to use this class
+%   - for reporting any issues encoutered
+%
+% Maintainer: Francesco Lanni <francesco.lanni@cern.ch>
+% Maintainer: Steffen Stärz <steffen.staerz@cern.ch>
+%-------------------------------------------------------------------------------
+% Document setup
+% loading ATLASPhaseII spec style
+%   options:
+%    - nodraft, noabstract, note, book
+%    - coverpage (requires Cover/[Front/Back]Cover.pdf)
+% together with local style definitions (glossary setup, defs, etc.)
+%-------------------------------------------------------------------------------
+\documentclass[nodraft]{ATLASPhaseII}
+
+%-------------------------------------------------------------------------------
+% During creation of the document, use this line to only compile certain
+% chapters, separated by comma for multiple chapters
+%
+% Note:
+%   Any \includeonly here will suppress all includes in nested files.
+%   Comma-separate the nested files to be shown.
+%
+%-------------------------------------------------------------------------------
+%\includeonly{text/FunctionalDescription,text/Block1}
+
+%-------------------------------------------------------------------------------
+% Document Setup
+% You may want to load further definitions..
+%-------------------------------------------------------------------------------
+%\input{path_to_file}
+
+%-------------------------------------------------------------------------------
+% The package 'todonotes' (https://ctan.org/pkg/todonotes) is used to define
+% the following individual handles on specific todos,
+% which can be hidden individually by uncommenting the next lines.
+% The document option 'nodraft' hides them all.
+%-------------------------------------------------------------------------------
+%\renewcommand{\editor}[1]{} % uncomment to hide EDITOR notes
+%\renewcommand{\fixit}[2][]{} % uncomment to hide FIXIT notes
+%\newcommand{\fixpage}[2][]{} % uncomment to hide FIXIT notes (in tables)
+%\renewcommand{\open}[1]{} % uncomment to hide OPEN notes
+%\renewcommand{\style}[1]{} % uncomment to hide STYLE notes
+
+%-------------------------------------------------------------------------------
+% General Document Information
+% Sets title, abstract and other document options
+%-------------------------------------------------------------------------------
+\input{metadata}
+
+%-------------------------------------------------------------------------------
+% Content
+%-------------------------------------------------------------------------------
+\begin{document}
+%-------------------------------------------------------------------------------
+% Title Page
+%-------------------------------------------------------------------------------
+\maketitlepage
+\frontmatter
+\cleardoublepage
+
+\pagestyle{ATLASPhaseIIToc}
+
+%-------------------------------------------------------------------------------
+% Instructions and Open Todos
+%-------------------------------------------------------------------------------
+%\include{text/Instructions} % uncomment to show work instructions
+
+%-------------------------------------------------------------------------------
+% After passing a review, a list of comments can be added.
+% Then this 'List of Review Comments' shall be added here.
+% The document option 'nodraft' hides it.
+%-------------------------------------------------------------------------------
+\clearpage
+\listofreviewcomments
+\clearpage
+
+%-------------------------------------------------------------------------------
+% While working on the document, there can be a long list of todos.
+% The document option 'nodraft' hides it.
+%-------------------------------------------------------------------------------
+\listoftodos
+\clearpage
+%-------------------------------------------------------------------------------
+% End of Intermediate Working Pages
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+% Revision History
+%-------------------------------------------------------------------------------
+\phantomsection
+\loadrevhistory{History}
+\clearpage
+
+%-------------------------------------------------------------------------------
+% Table of Contents
+%-------------------------------------------------------------------------------
+\phantomsection
+\tableofcontents
+\label{part:Toc}
+\clearpage
+
+%-------------------------------------------------------------------------------
+% Actual Content by Chapters
+%-------------------------------------------------------------------------------
+\mainmatter
+\pagestyle{ATLASPhaseIIDoc}
+
+\include{content}
+
+
+\cleardoublepage
+%-------------------------------------------------------------------------------
+% References
+%-------------------------------------------------------------------------------
+\pagestyle{ATLASPhaseIIBib}
+\phantomsection  % this is needed for the correct links in the pdf (e.g. pdfviewer)
+\addcontentsline{toc}{chapter}{\bibname}
+\printbibliography[heading=subbibliography]   % subbibintoc is needed for the reference to look as a section and not a chapter
+\label{pg:lastpage}
+\clearpage
+
+%-------------------------------------------------------------------------------
+% Appendix
+%-------------------------------------------------------------------------------
+\begin{appendices}
+\backmatter
+\include{text/Appendix}
+
+\chapter{Terms, Definitions and Glossary}
+\label{cha:terms}
+
+\listofdefinition
+\listofrequirement
+\listofspecification
+\listofrecommendation
+\listofremark
+\listoftables
+\listoffigures
+%-------------------------------------------------------------------------------
+% Glossary (list of acronyms)
+%-------------------------------------------------------------------------------
+\section{Glossary}
+\label{sec:glossary}
+\renewcommand{\glossarysection}[2][]{}
+% optionally print all glossary entries (the unused ones) - not recommended
+%\glsaddallunused
+\printglossary[type=main]
+
+\clearpage
+\end{appendices}
+
+\end{document}

@@ -1,0 +1,128 @@
+\section{Introduction}
+
+\section{I/O}
+
+\subsection{Dedicated input/output registers}
+
+Both Xilinx and Intel FPGAs features dedicated input/output registers. They are placed in the I/O pad and has direct access to the clock tree. Using such elements provides very low variation over different compilations for maximum and minimum $T_{co}$ values, for outputs, and fixed $T_s$ and $T_h$ values for inputs.
+
+\Cref{fig:fastinputregister-quartus,fig:fastoutputregister-quartus} show the Intel Quartus Resource Property Viewer, for input and output, respectively, if fast registers are enabled. \Cref{listing:fastregister,listing:iobregister} show the syntax examples to get dedicated I/O registers for Intel and Xilinx designs, respectively. More examples for Intel and Xilinx can be found at \cite{intel307IntelFPGA2018}.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.8\linewidth]{images/quartus/fastinputregister-quartus}
+    \caption{Input register}
+    \label{fig:fastinputregister-quartus}
+\end{figure} 
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.8\linewidth]{images/quartus/fastoutputregister-quartus}
+    \caption{Output register}
+    \label{fig:fastoutputregister-quartus}
+\end{figure} 
+
+
+\begin{listing}[ht]
+\begin{tclcode*}{}
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to path_to_register
+set_instance_assignment -name FAST_OUPUT_REGISTER ON -to path_to_register
+\end{tclcode*}
+\caption{Intel fast registers QSF/TCL example}
+\label{listing:fastregister}
+\end{listing}
+
+\begin{listing}[ht]
+\begin{tclcode*}{}
+set_property IOB TRUE [get_cells {path_to_register}]
+\end{tclcode*}
+\caption{Xilinx IOB registers XDC/TCL example}
+\label{listing:iobregister}
+\end{listing}
+
+\subsection{Loosen I/O delay constraints}
+
+One may not need to constraint the I/O if dedicated registers are used. The skew will be very low because the I/O pads have direct access to the clock tree. The clock tree is designed to deliver the clock with very low skew to several parts of the FPGA. The clock skew is the time difference between the clock signal arriving at source and destination end-points in a given clock path, i.e. $t_{skew} = t_{destination} - t_{source}$. If positive, source receives the clock earlier than the destination. If negative, source receives the clock later than the destination. 
+
+\Cref{listing:outputdelay} shows an Intel and Xilinx loosen output timing SDC/XDC/TCL example. Having minimum and maximum values to 0 means that there is no external delay, and the fitter can generate a design with $T_{co}$ within any value in $0 \leq T_{co} \leq T_{clk}$. As larger is the difference between minimum and maximum values for the I/O delay, more difficult is to close timing~\cite{scovilleTimeQuestUserGuide2010}. Notice that \textit{tx\_lvds*} translates to any bit of \textit{tx\_lvds} and the respective differential pair. \Cref{fig:Tcodatasheet-quartus.png} shows the clock-to-output times for all the \textit{tx\_lvds*} ports. Keep in mind that maximum $T_{co}$ values are shown by default. The minimum values are available in the \textit{Minimum clock to Output Times} tab. 
+
+\begin{listing}[ht]
+\begin{tclcode*}{}
+# Virtual clock representing the clock of the external receiver
+create_clock -period 6.25 -name ttc_clk_ext
+# Minimum and maximum delay set to 0
+set_output_delay -clock ttc_clk_ext -max 0.0 [get_ports tx_lvds*]
+set_output_delay -clock ttc_clk_ext -min 0.0 [get_ports tx_lvds*]
+\end{tclcode*}
+\caption{Intel and Xilinx loosen output timing SDC/XDC/TCL example}
+\label{listing:outputdelay}
+\end{listing}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=1\linewidth]{images/quartus/Tcodatasheet-quartus.png}
+    \caption{Clock to output times from Quartus Timing Analyzer datasheet report}
+    \label{fig:Tcodatasheet-quartus.png}
+\end{figure} 
+
+
+
+
+\section{Clock groups}
+
+For both Xilinx and Intel, by default, all clocks are related. So, clock groups are used to overwrite this default assumption.
+
+This assumption is overwritten using the \textit{set\_clock\_groups} constraint. This defines groups of clocks that are inter-related but unrelated to other groups, regardless if these other groups are defined or not. 
+ Then, here is the catch:
+ 
+ \begin{itemize}
+     \item \textbf{Option A:} Having 2 or more groups in the \textit{set\_clock\_groups} constraint means that the clocks within each group is related to each other and unrelated to the clocks defined in the other groups. 
+     \item \textbf{Option B:} Having 1 group in the \textit{set\_clock\_groups} constraint means that the clocks within the group is related to each other and unrelated to ANY other clock, including clocks that have not been associated to a group by the user.
+ \end{itemize}
+ 
+ \Cref{listing:clockgroupsssdc,listing:clockgroupssxdc} show SDC and XDC clock groups examples. SDC and XDC are used for Intel and Xilinx designs, respectively. 
+ 
+ \begin{listing}[ht]
+\begin{tclcode*}{}
+# Assign adc_clk, clocks generated from adc_clk and sys_clk, clocks generated from sys_clk to different clock groups
+set_clock_groups -asynchronous \
+-group [get_clocks {adc_clk \
+the_adc_pll|Intel FPGA IOPLL_component_autogenerated|pll|clk[0] \
+the_adc_pll|Intel FPGA IOPLL_component_autogenerated|pll|clk[1] \
+the_adc_pll|Intel FPGA IOPLL_component_autogenerated|pll|clk[2] \
+}] \
+-group [get_clock {sys_clk \
+the_system_pll|Intel FPGA IOPLL_component_autogenerated|pll|clk[0] \
+the_system_pll|Intel FPGA IOPLL_component_autogenerated|pll|clk[1] \
+}]
+\end{tclcode*}
+\caption{Intel clock groups SDC example}
+\label{listing:clockgroupssdc}
+\end{listing}
+
+ \begin{listing}[ht]
+\begin{tclcode*}{}
+# Assign adc_clk, clocks generated from adc_clk and sys_clk, clocks generated from sys_clk to different clock groups
+set_clock_groups -asynchronous \
+-group [get_clocks -include_generated_clocks adc_clk] \
+-group [get_clocks -include_generated_clocks sys_clk]
+\end{tclcode*}
+\caption{Xilinx clock groups XDC example}
+\label{listing:clockgroupssxdc}
+\end{listing}
+
+\subsection{One or multiple \textit{set\_clock\_groups} statements?}
+
+Here comes the bit danger part, if you create a new output in a PLL and forget to add to the respective clock group, you have different outcomes depending if you used a single statement clock group or multiple statements. 
+
+ \begin{itemize}
+     \item \textbf{Option B:} If you used one \textit{set\_clock\_groups} statement per group, all the clocks belonging to these groups will be unrelated to this new generated clock. This happens because you have set they would be unrelated to ANY other clock, including clocks that do not belong to a user-specified group. 
+     \item \textbf{Option A:} If you used a single \textit{set\_clock\_groups} statement for all groups, all these clocks groups will be unrelated to each other, but related to a clock that is not specified to any of these groups. Having 2 or more groups do not impose the non-relationship to any other clock. 
+ \end{itemize}
+
+Going for option A is always safer, because if you forget to update your clock groups, this new generated clock inherits the default assumption of being related, so handled by static timing analysis. 
+
+Limiting the scope to Xilinx, Vivado offers the option of using the option \textit{-include\_generated\_clocks} to~ the base clock,  then all the generated clocks would be included automatically to their base clock group. 
+This way, one could still specify clock groups using multiple statements with reasonable robustness. So, in principle, for Xilinx designs one could still choose options A or B if using the option \textit{-include\_generated\_clocks}.
+
+As you said, specifying two clocks as unrelated, means to have a set\_false\_path between any end-points from clock A to B and vice-versa. And this should be done if clocks are unrelated. 

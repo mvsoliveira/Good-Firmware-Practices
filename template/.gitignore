@@ -1,0 +1,20 @@
+# .gitignore file:
+# Specifies intentionally untracked files for this repository
+# Find documentation (syntax) here: https://git-scm.com/docs/gitignore
+#
+# White-listing approach: forbid everything, only allow explicitly
+#
+# We aim not to cover all cases, things can always be added by "-f" manually;
+# and files already tracked by Git are not affected anyway.
+#
+# Steffen Stärz <steffen.staerz@cern.ch>
+################################################################################
+
+# First, ignore everything
+*
+
+# and all the file types we're interested in:
+
+# git stuff
+!.gitignore
+!.gitlab/CODEOWNERS
